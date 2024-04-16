@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>xd-common</artifactId>
     <name>NHIN Direct XD* Common Library</name>
-    <version>6.0</version>
+    <version>6.0.0.1</version>
     <description>Library for common XD* operations and objects</description>
     <inceptionYear>2010</inceptionYear>
     <url>https://github.com/DirectProjectJavaRI/xd-common</url>     
@@ -36,7 +36,7 @@
 	<parent>
 	   <groupId>org.springframework.boot</groupId>
 	   <artifactId>spring-boot-dependencies</artifactId>
-	   <version>2.1.2.RELEASE</version>
+	   <version>2.7.18</version>
 	</parent>   
 	<scm>
 	     <url>https://github.com/DirectProjectJavaRI/xd-common.git</url>  
@@ -50,7 +50,7 @@
         <dependency>
             <groupId>org.nhind</groupId>
             <artifactId>config-service-client</artifactId>
-            <version>6.0</version>
+            <version>6.0.0.1</version>
             <scope>compile</scope>
         </dependency>       
 		<dependency>
@@ -85,7 +85,7 @@
         <dependency>
             <groupId>org.nhind</groupId>
             <artifactId>config-service-jar</artifactId>
-            <version>6.0</version>
+            <version>6.0.4.1</version>
             <scope>test</scope>
         </dependency>  	 
 		<dependency>
@@ -107,9 +107,14 @@
 		<dependency>
 		    <groupId>org.apache.camel</groupId>
 		    <artifactId>camel-spring-boot-starter</artifactId>
-		    <version>2.22.0</version>
+		    <version>2.25.4</version>
 		    <scope>test</scope>		    
-		</dependency>		        	       
+		</dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -145,9 +150,6 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <fork>true</fork>
-                    <archive>
-                        <index />
-                    </archive>
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
@@ -189,6 +191,7 @@
                     <verbose>true</verbose>
                     <extension>true</extension>
                     <catalog>${basedir}/src/jax-ws-catalog.xml</catalog>
+                    <sei/>
                 </configuration>
             </plugin>
             <plugin>
@@ -210,33 +213,33 @@
 		          </execution>
 		        </executions>
 		    </plugin>                
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.6.1</version>
-                <configuration>
-				    <additionalparam>-Xdoclint:none</additionalparam>
-					<charset>UTF-8</charset>
-					<docencoding>UTF-8</docencoding>
-					<docfilessubdirs>true</docfilessubdirs>
-					<detectJavaApiLink>true</detectJavaApiLink>
-					<detectLinks>true</detectLinks>
-					<source>1.8</source>
-					<show>public</show>
-                    <excludePackageNames>
-                        org.nhindirect.xd.transform.parse.ccd.jaxb
-                    </excludePackageNames>
-                </configuration>
-	            <executions>
-	              <execution>
-	                <phase>package</phase>
-	                <id>attach-javadocs</id>
-	                <goals>
-	                  <goal>jar</goal>
-	                </goals>
-	              </execution>
-	            </executions>	                 
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-javadoc-plugin</artifactId>-->
+<!--                <version>2.6.1</version>-->
+<!--                <configuration>-->
+<!--				    <additionalparam>-Xdoclint:none</additionalparam>-->
+<!--					<charset>UTF-8</charset>-->
+<!--					<docencoding>UTF-8</docencoding>-->
+<!--					<docfilessubdirs>true</docfilessubdirs>-->
+<!--					<detectJavaApiLink>true</detectJavaApiLink>-->
+<!--					<detectLinks>true</detectLinks>-->
+<!--					<source>1.8</source>-->
+<!--					<show>public</show>-->
+<!--                    <excludePackageNames>-->
+<!--                        org.nhindirect.xd.transform.parse.ccd.jaxb-->
+<!--                    </excludePackageNames>-->
+<!--                </configuration>-->
+<!--	            <executions>-->
+<!--	              <execution>-->
+<!--	                <phase>package</phase>-->
+<!--	                <id>attach-javadocs</id>-->
+<!--	                <goals>-->
+<!--	                  <goal>jar</goal>-->
+<!--	                </goals>-->
+<!--	              </execution>-->
+<!--	            </executions>	                 -->
+<!--            </plugin>-->
             <!-- for release only            
 	        <plugin>
                <groupId>org.apache.maven.plugins</groupId>
